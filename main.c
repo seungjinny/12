@@ -6,16 +6,24 @@
 
 int main(int argc, char *argv[]) {
 	
-	char src[] = "The worst things to eat before you sleep";
-	char dst[100];
+	FILE *fp;
+	char str[100];
+	int i;
 	
-	char str[30] = "happy C programming";
+	fp = fopen("sample.txt", "w");
+	if (fp == NULL)
+	{
+		return -1;
+	}
 	
-	strcpy(dst, src);
+	for (i=0; i<3; i++)
+	{
+	printf("Input a word: ");
+	scanf("%s", str);
+	fprintf(fp, "%s\n", str);
+	}
 	
-	printf("copied string : %s\n", dst);
-	
-	printf("length of \"%s\" : %i\n", str, strlen(str));
+	fclose(fp);
 	
 	return 0;
 }
